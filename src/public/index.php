@@ -1,6 +1,13 @@
 <html>
     <head>
         <title> PHP test </title>
+        <style type="text/css">
+            p {
+        
+                font-size:50px;
+            }
+            </style>
+        
     </head>
     <body>
         <?php
@@ -28,15 +35,69 @@
             $idade = 50;
             
             echo 'e: [' . $idade . ']<br />'; 
-            */
-            $saldo = 10;
-            if ($saldo<100){
-                $deposito = 1000;
-                $saldo += $deposito;
-            }
-            echo $saldo;
             
+            #Uso do SWITCH
 
+            $menu = 'index';
+            switch($menu){
+                case 'index':
+                    echo "<p>Escolheu a pagina inicial</p>";
+                    break;
+                case 'sobre':
+                    echo 'Escolheu a pagina sobre ';
+                    break;
+                case 'novidades':
+                    echo 'Escolheu a página Novidades';
+                    break;
+            }
+            
+            # uso do IF e ELSE
+
+            $tanque = 10;
+            echo $tanque <= 1 ? 'Abastecer agora <br />' : 'Combustivel OK <br /> ';
+            
+            $statusTanque = $tanque <= 1 ? FALSE : TRUE;
+            
+            if($statusTanque) echo 'Combustivel OK';
+            else echo 'Procurar um posto para abastecer.';
+            
+            #uso do WHILE
+
+            $cout = 1;
+            
+            while($cout <=10){
+                echo $cout . 'x 10 =' . $cout*10 . '<br />';
+                ++$cout;
+            }
+            
+            
+            $vegetais = array('jerimum', 'batata', 'tomate');
+            $vegetais[] = 'cebola';
+            
+            var_dump($vegetais);
+            
+            echo 'Hoje vou cozinhar ' . $vegetais[0] . '<br />';
+            echo 'Hoje vou cozinhar ' . $vegetais[1] . '<br />';
+            echo 'Hoje vou cozinhar ' . $vegetais[2] . '<br />';
+
+            echo 'Vegetais disponiveis: ' . count($vegetais) . '<br />';
+            
+            $total = count($vegetais);
+            
+            for($i=0;$i<$total;$i++){
+                echo "Hoje eu vou cozinhar ". $vegetais[$i] . '<br />';
+            }
+            */
+
+            $vegetais = array(
+                'jerimum <br />'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIMnPJmHeNAgdFc2bc4zyakQkjXgt7Xb4ec-4-5--1aQ&s', 
+                'batata <br /> '=>'https://dynamicassets.basf.com/is/image/basf/BR-cultura-da-batata:1x1?dpr=off&fmt=webp-alpha&fit=crop%2C1&wid=1076&hei=1076',
+                'tomate <br />'=>'https://s2.glbimg.com/JTFA920LbTAUeTN1JF00ql7oH7Y=/0x0:4032x3024/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/y/w/lwZf9ETcWr2Oslxcx3Ng/eddie-pipocas-gk6jpxwk5ze-unsplash.jpg'
+            );
+            foreach($vegetais as $chave=>$valor){
+                echo 'Hoje eu vou cozinhar ' . $chave . "<img src=\"$valor\" width= '400', height = '500' /><br />"; 
+            }
+        
             ?>
     </body>
 </html>
