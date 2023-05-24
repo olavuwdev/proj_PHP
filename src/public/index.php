@@ -6,11 +6,36 @@
         
                 font-size:50px;
             }
+            body{
+                text-align: center;
+                background-color:green;
+                font-family: Georgia, serif;
+                font-size:200%
+            }
+            
             </style>
         
     </head>
     <body>
         <?php
+        date_default_timezone_set('America/Fortaleza');
+        $data = date('d/m/Y - ');
+        $hora = date('H');
+        echo $data . $hora . "Horas" ;
+        if ($hora<12){
+            $mensagem = " Bom dia!";
+        }elseif(date('h') > 11 && date('H') < 18){
+            $mensagem = " Boa tarde!";
+            $mensagem .= ' Aceita um chá gelado?';
+        }elseif(date("H") > 17){    
+            $mensagem = "Boa noite!";
+        }
+        echo " Olá <br>" . $mensagem;
+        phpinfo()
+        ?>
+        
+        <?php
+        
         //declare(strict_types=1);
         
             /* $contador = 1;
@@ -87,17 +112,24 @@
             for($i=0;$i<$total;$i++){
                 echo "Hoje eu vou cozinhar ". $vegetais[$i] . '<br />';
             }
-            */
-
+            
             $vegetais = array(
                 'jerimum <br />'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIMnPJmHeNAgdFc2bc4zyakQkjXgt7Xb4ec-4-5--1aQ&s', 
                 'batata <br /> '=>'https://dynamicassets.basf.com/is/image/basf/BR-cultura-da-batata:1x1?dpr=off&fmt=webp-alpha&fit=crop%2C1&wid=1076&hei=1076',
                 'tomate <br />'=>'https://s2.glbimg.com/JTFA920LbTAUeTN1JF00ql7oH7Y=/0x0:4032x3024/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/y/w/lwZf9ETcWr2Oslxcx3Ng/eddie-pipocas-gk6jpxwk5ze-unsplash.jpg'
             );
             foreach($vegetais as $chave=>$valor){
-                echo 'Hoje eu vou cozinhar ' . $chave . "<img src=\"$valor\" width= '400', height = '500' /><br />"; 
+                echo 'Hoje eu vou cozinhar ' . $chave . "<img src=\"$valor\" width= '200', height = '200' /><br />"; 
             }
-        
+            $estoqueCarros = array(
+                array('Palio', 10, 125),
+                array('Gol', 15, 200),
+                array('Civic', 4, 38)
+            );
+            echo 'Temos: ' . $estoqueCarros[0][1] . ' ' . $estoqueCarros[0][0] . '<br/> Vendidos: ' . $estoqueCarros[0][2];        
+            print_r($_GET);
+            */
+
             ?>
     </body>
 </html>
